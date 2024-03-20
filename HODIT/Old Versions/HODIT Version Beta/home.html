@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HODIT | Home</title>
+        <link rel = "stylesheet" href = "styling.css">
+        <script src = "code.js"></script>
+    </head>
+    <body onload = "initialize();">      
+        <!-- Preloader -->
+        <div id = "overlay"><div id = "spinner"></div></div>  
+        <!-- Menu Bar -->
+        <div id = "top-bar"><span title = "Human Online Diagnostic Tool" id = "logo">HODIT&copy;</span>
+        <button id = "logout" onclick = "location.href='index.html'">Log Out</button><button onclick = "showInfo();" id = "account-button"2>My Account</button></div><br/><br/>
+        <!-- Blue Website -->
+        <div id = "website-blur" onclick = "hideInfo();"></div> 
+        <!-- Account Information -->
+        <div id = "account-info">
+            <header>Account Info</header>
+            <div>
+                Name: <span id = "account-info-name"></span><br/>
+                Username: <span id = "account-info-username"></span><br/>
+                Password: <span id = "account-info-password"></span><br/>
+                E-mail: <span id = "account-info-email"></span><br/>
+                All Diagnoses: <span id = "account-info-diagnoses">Not Diagnosed.</span>
+            </div>
+        </div>
+        <!-- Buttons and Images -->
+        <button id = "gender" onclick = "changeGender(this)">♂</button>
+        <span id = "anatomyContainer"><img id = "anatomy" src = "images/male.png" usemap = "#malebody"/></span>
+        <!-- Male Image Map -->
+        <map name = "malebody">
+            <!-- Front Side -->
+            <area onclick = "displaySymptoms(Head,this);" title = "Head" href="#" coords="150,11,141,14,133,23,132,36,128,41,133,47,135,54,146,59,160,55,163,48,168,48,170,41,167,33,167,25,160,16" shape="poly">
+            <area onclick = "displaySymptoms(Neck,this);" title="Neck" href="#" coords="139,61,122,75,176,76,161,60" shape="poly">
+            <area onclick = "displaySymptoms(Thorax,this);" title="Thorax" href="#" coords="194,91,183,123,149,112,118,124,104,92,112,75,181,75" shape="poly">
+            <area onclick = "displaySymptoms(Shoulders,this);" title="Shoulders" href="#" coords="181,74,194,73,208,85,208,107" shape="poly">
+            <area onclick = "displaySymptoms(Shoulders,this);" title="Shoulders" href="#" coords="122,73,106,72,93,83,91,95,91,105,104,92,113,74" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Biceps" href="#" coords="90,106,77,135,96,146,107,124,107,103,103,94" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Biceps" href="#" coords="194,90,209,109,221,133,201,145,191,124,187,108" shape="poly">
+            <area onclick = "displaySymptoms(Forearms,this);" title="Forearms" href="#" coords="79,137,97,147,68,185,55,178" shape="poly">
+            <area onclick = "displaySymptoms(Forearms,this);" title="Forearms" href="#" coords="201,145,220,134,244,177,232,185" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Hands" href="#" coords="58,178,34,187,33,192,46,189,33,210,39,217,45,217,52,215,68,186" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Hands" href="#" coords="231,186,251,214,264,216,275,210,258,190,271,188,260,181,244,178" shape="poly">
+            <area onclick = "displaySymptoms(Abdomen,this);" title="Abdomen" href="#" coords="114,126,121,167,150,189,179,178,185,124,150,112" shape="poly">
+            <area onclick = "displaySymptoms(Pelvis,this);" title="Pelvis" href="#" coords="120,164,150,190,181,175,184,183,150,219,116,182" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Quadriceps" href="#" coords="116,182,102,236,102,266,112,290,137,293,145,250,149,218" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Quadriceps" href="#" coords="152,217,153,252,164,289,175,293,191,283,197,263,196,230,183,186" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Knees" href="#" coords="112,290,136,293,134,313,122,325,111,304" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Knees" href="#" coords="163,289,175,293,191,283,189,302,184,323,168,311" shape="poly">
+            <area onclick = "displaySymptoms(Shins,this);" title="Shins" href="#" coords="111,306,107,338,112,375,127,375,133,345,140,335,135,312,122,325" shape="poly">
+            <area onclick = "displaySymptoms(Shins,this);" title="Shins" href="#" coords="167,311,164,331,171,348,176,376,192,376,193,359,196,337,195,324,190,303,184,324" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Ankles" href="#" coords="111,375,127,375,127,388,111,388" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Ankles" href="#" coords="175,376,191,376,191,387,176,388" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Feet" href="#" coords="110,389,108,398,103,404,95,412,96,417,107,419,114,417,118,410,123,406,129,402,129,395,126,388" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Feet" href="#" coords="176,389,173,398,176,405,184,406,188,414,198,417,208,416,207,409,197,401,191,387" shape="poly">
+            <!--  Back Side -->
+            <area onclick = "displaySymptoms(Head,this);" title="Head" href="#" coords="425,11,415,14,407,23,406,31,404,46,412,58,440,60,447,45,448,39,444,40,444,25,436,15" shape="poly">
+            <area onclick = "displaySymptoms(Neck,this);" title="Neck" href="#" coords="414,59,411,70,399,80,453,80,441,68,440,59" shape="poly">
+            <area onclick = "displaySymptoms(Spine,this);" title="Spine" href="#" coords="424,60,417,87,422,96,423,122,421,162,421,177,427,180,427,138,429,100,429,71" shape="poly">
+            <area onclick = "displaySymptoms(Shoulders,this);" title="Shoulders" href="#" coords="399,81,376,81,365,92,364,115,381,107,387,111,380,122,385,133,404,136,406,103" shape="poly">
+            <area onclick = "displaySymptoms(Shoulders,this);" title="Shoulders" href="#" coords="454,80,469,77,486,88,489,98,488,111,477,106,468,104,469,132,447,137,442,102" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Triceps" href="#" coords="362,116,380,107,384,111,380,123,381,133,370,157,358,145,348,150" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Triceps" href="#" coords="469,105,469,130,481,153,486,142,502,143,490,112,476,104" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Elbows" href="#" coords="347,151,344,157,362,168,370,157,358,146" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Elbows" href="#" coords="488,165,508,157,502,144,487,142,481,154" shape="poly">
+            <area onclick = "displaySymptoms(Forearms,this);" title="Forearms" href="#" coords="327,185,338,193,362,168,344,158" shape="poly">
+            <area onclick = "displaySymptoms(Forearms,this);" title="Forearms" href="#" coords="486,165,515,197,526,192,509,157" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Hands" href="#" coords="326,185,306,188,305,194,315,193,301,213,309,218,322,217,338,195" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Hands" href="#" coords="528,193,540,198,552,202,548,207,539,205,551,227,543,234,530,228,514,200" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Lower Back" href="#" coords="393,158,455,161,456,175,391,176" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Hips" href="#" coords="392,175,389,190,425,196,457,185,456,175,423,176" shape="poly">
+            <area onclick = "displaySymptoms(Buttocks,this);" title="Buttocks" href="#" coords="391,196,392,229,405,246,419,241,426,225,428,237,447,243,460,228,456,185,427,214,395,188" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Hamstrings" href="#" coords="391,229,378,255,382,278,384,302,396,295,405,312,408,301,419,271,421,239,405,246" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Hamstrings" href="#" coords="461,228,468,247,467,268,462,300,454,292,441,311,433,279,428,238,448,243" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Calves" href="#" coords="383,305,377,350,392,352,396,345,403,357,409,344,405,314,395,298" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Calves" href="#" coords="439,313,435,339,442,356,451,345,454,352,465,351,467,339,464,321,463,303,455,292" shape="poly">
+            <area onclick = "displaySymptoms(Achilles,this);" title="Achilles" href = "#" coords="382,353,384,375,383,391,399,400,398,382,403,359,396,347" shape="poly">
+            <area onclick = "displaySymptoms(Achilles,this);" title="Achilles" href="#" coords="442,357,447,391,445,401,453,400,460,388,461,379,466,352,451,346" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Feet" href="#" coords="377,394,369,398,366,403,378,408,390,410,400,408,399,400,383,392" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Feet" href="#" coords="445,402,444,410,455,411,474,406,470,398,460,390" shape="poly">
+        </map>
+        <!-- Female Image Map -->
+        <map name = "femalebody">
+            <!-- Front Side -->
+            <area onclick = "displaySymptoms(Head,this);" title="Head" href="#" coords="87,17,77,20,72,26,69,32,70,43,67,42,66,49,72,56,73,63,80,68,88,72,97,67,101,61,103,55,108,44,105,43,105,34,102,26" shape="poly">
+            <area onclick = "displaySymptoms(Neck,this);" title="Neck" href="#" coords= "73,64,75,73,74,79,57,83,87,90,122,82,100,76,99,65,88,72" shape="poly">
+            <area onclick = "displaySymptoms(ThoraxF,this);" title="Thorax" href="#" coords="55,81,53,98,56,111,51,125,59,141,119,139,122,125,117,108,120,83,88,91" shape="poly">
+            <area onclick = "displaySymptoms(Shoulders,this);" title="Shoulders" href="#" coords="121,84,126,83,133,93,133,110,118,106,121,84" shape="poly">
+            <area onclick = "displaySymptoms(Shoulders,this);" title="Shoulders" href="#" coords="56,81,44,84,41,91,40,110,53,102" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Biceps" href="#" coords="39,111,35,152,50,161,54,134,50,125,56,110,53,103" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Biceps" href="#" coords="133,111,134,149,122,159,120,139,122,125,117,106" shape="poly">
+            <area onclick = "displaySymptoms(Forearms,this);" title="Forearms" href="#" coords="35,152,32,172,32,214,42,214,49,181,51,162" shape="poly">
+            <area onclick = "displaySymptoms(Forearms,this);" title="Forearms" href="#" coords="135,149,120,161,125,186,134,214,142,214,142,186" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Hands" href="#" coords="31,214,31,219,22,229,21,237,22,243,25,256,34,259,44,253,44,234,42,215" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Hands" href="#" coords="133,214,133,231,136,236,135,245,136,257,146,253,149,234,142,212" shape="poly">
+            <area onclick = "displaySymptoms(Abdomen,this);" title="Abdomen" href="#" coords="57,140,62,171,88,199,116,173,119,139" shape="poly">
+            <area onclick = "displaySymptoms(PelvisF,this);" title="Pelvis" href="#" coords="63,172,55,191,86,234,94,234,124,189,116,174,88,200" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Quadriceps" href="#" coords="55,192,48,234,63,316,67,302,74,299,77,318,85,316,88,235" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Quadriceps" href="#" coords="94,236,92,318,101,318,103,297,112,299,112,317,117,316,132,231,124,189" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Knees" href="#" coords="67,302,62,317,63,331,71,349,79,350,83,344,87,316,77,318,74,300" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Knees" href="#" coords="92,318,95,330,93,339,102,349,108,347,117,317,111,317,113,297,104,296,101,318" shape="poly">
+            <area onclick = "displaySymptoms(Shins,this);" title="Shins" href="#" coords="62,329,65,363,73,409,85,405,89,355,85,332,83,345,80,350,72,349" shape="poly">
+            <area onclick = "displaySymptoms(Shins,this);" title="Shins" href="#" coords="93,339,102,350,108,347,116,322,117,357,106,409,93,406" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Ankles" href="#" coords="72,409,74,420,87,419,86,405" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Ankles" href="#" coords="92,406,90,416,105,420,106,408" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Feet" href="#" coords="74,420,74,426,67,439,88,439,89,426,88,419" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Feet" href="#" coords="92,417,90,439,110,439,105,423,106,420" shape="poly">
+            <!-- Back Side -->
+            <area onclick = "displaySymptoms(Head,this);" title="Head" href="#" coords="254,17,242,21,237,34,235,43,238,55,244,65,268,66,276,48,274,35,272,26,266,21,260,17" shape="poly">
+            <area onclick = "displaySymptoms(Neck,this);"title="Neck" href="#" coords="243,64,242,76,218,82,286,84,271,79,268,64" shape="poly">
+            <area onclick = "displaySymptoms(Spine,this);" title="Spine" href="#" coords="247,191,255,191,261,83,250,83" shape="poly">
+            <area onclick = "displaySymptoms(Shoulders,this);" title="Shoulders" href="#" coords="209,116,219,100,230,96,238,119,243,84,215,83,209,92" shape="poly">
+            <area onclick = "displaySymptoms(Shoulders,this);" title="Shoulders" href="#" coords="269,117,268,84,286,84,297,84,303,96,302,121,290,104,280,95" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Triceps" href="#" coords="209,118,206,155,223,157,225,115,219,102" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Triceps" href="#" coords="291,159,306,152,301,121,290,105,285,123" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Elbows" href="#" coords="206,156,202,170,219,175,222,164,222,158" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Elbows" href="#" coords="290,159,306,153,309,167,291,170" shape="poly">
+            <area onclick = "displaySymptoms(Forearms,this);" title="Forearms" href="#" coords="203,170,198,185,199,213,209,211,219,175" shape="poly">
+            <area onclick = "displaySymptoms(Forearms,this);" title="Forearms" href="#" coords="291,171,294,187,300,214,311,212,311,186,309,167" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Hands" href="#" coords="199,213,192,234,197,251,207,256,202,244,207,242,208,228,209,211" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Hands" href="#" coords="299,215,298,249,308,258,318,253,321,236,319,227,310,213" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Lower Back" href="#" coords="226,162,279,160,283,180,221,180" shape="poly">
+            <area onclick = "displaySymptoms(jointType,this);" title="Hips" href="#" coords="222,180,218,186,251,212,285,187,284,180" shape="poly">
+            <area onclick = "displaySymptoms(Buttocks,this);" title="Buttocks" href="#" coords="218,188,216,222,226,238,248,240,251,231,257,240,276,240,286,223,285,188,251,213" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Hamstrings" href="#" coords="248,241,212,243,224,317,248,321" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Hamstrings" href="#" coords="254,241,292,241,279,319,256,321" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Calves" href="#" coords="226,316,223,348,228,373,249,373,251,353,250,322" shape="poly">
+            <area onclick = "displaySymptoms(muscleType,this);" title="Calves" href="#" coords="256,323,254,347,256,374,276,373,279,341,279,320" shape="poly">
+            <area onclick = "displaySymptoms(Achilles,this);" title="Achilles" href="#" coords="229,373,237,416,251,415,248,404,249,374" shape="poly">
+            <area onclick = "displaySymptoms(Achilles,this);" title="Achilles" href="#" coords="257,414,268,414,276,374,256,375" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Feet" href="#" coords="236,417,236,427,231,435,250,436,251,426,251,416" shape="poly">
+            <area onclick = "displaySymptoms(appendageType,this);" title="Feet" href="#" coords="254,415,253,431,259,436,273,434,269,426,268,415" shape="poly">
+            <!-- Dropdowns -->
+            <span id = "container"></span>
+            <!-- Help -->
+            <div onclick = "showHelp(this);" id = "help">Help</div>
+            <div id = "help-drop">Welcome to the Human Online Diagnostic Tool! In order to use HODIT, you must first select a body part from the image above. Please keep in 
+                mind that it does not refer to the musculoskeletal system itself, but all body parts in and around that region. You mustselect your main problematic symptom 
+                from the list, and then continue adding symptoms until you recieve a diagnosis. If you make a mistake or wish to reset, press the reset button to clear all added symptoms.
+            </div>
+        </map>
+        <!-- Symptoms + Diagnoses Menu -->
+        <div id = "menu">
+            <header>Symptoms</header>
+            <div id = "symptomsContainer">
+                <button onclick = "clearContainer();" id = "reset">Reset</button>
+            </div>
+            <header>Diagnosis</header>
+            <div id = "diagnosisContainer"><div id = "finishedDiagnosis"></div></div>
+        </div>
+    </body>
+</html>

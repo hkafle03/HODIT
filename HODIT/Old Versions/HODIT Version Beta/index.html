@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HODIT | Login</title>
+        <link rel = "stylesheet" href = "styling.css">
+        <script src = "code.js"></script>
+    </head>
+    <bod onload = "generateData();">
+        <!-- Preloader -->
+        <div id = "overlay"><div id = "spinner"></div></div>  
+        <!-- Checkboxed linked by labels detect if login or signup is selected. -->
+        <input type = "radio" name = "layout" id = "login-selected">
+        <input type = "radio" name = "layout" id = "signup-selected">
+        <!-- These <div> elements when clicked activate the checkboxes. -->
+        <label for = "login-selected"><div id = "login-area"></div></label>
+        <label for = "signup-selected"><div id = "signup-area"></div></label>
+        <!-- Actual Login and Signup Tabs -->
+        <div id = "login-tab">Login</div>
+        <div id = "signup-tab">Sign Up</div>
+        <!-- Input Fields -->
+        <div id = "formcontainer"></div>
+        <div id = "inputcontainer">
+            <div class = "hidden-text">Name:</div>
+            <form><input id = "name" autocomplete="off"></form>
+            <div>Username:</div>
+            <form><input id = "username" autocomplete="off"></form>
+            <div>Password:</div>
+            <form><input type = "password" id = "password" autocomplete="off"></form>
+            <div class = "hidden-text">Email:</div>
+            <form><input id = "email" autocomplete="off"></form>
+        </div>
+        <!-- Buttons -->
+        <button onclick = "login();" id = "login-button">Login</button>
+        <button onclick = "signup();" id = "signup-button">Sign Up</button>
+        <!-- Alert Box -->
+        <div id="alert">
+            <span id="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <div id = "alert-message"></div>
+        </div>
+    </body>
+</html>

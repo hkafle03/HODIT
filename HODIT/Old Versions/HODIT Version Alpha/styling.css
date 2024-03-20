@@ -1,0 +1,133 @@
+/* IMPORTANT: Styling works BEST with a Macbook or Mac Computer.*/
+*:not(#gender){font-family:"futura";user-select:none;}
+html{overflow: hidden;}
+body{background-color: rgb(99, 124, 124, 0.164);}
+/* Top Header */
+#title
+{
+  position:absolute;
+  top:0;
+  left:0;
+  font-size:5vh;
+  color:#6f2424;
+  background-color:#6f242486;
+  width:100%;
+  height:10vh;
+}
+#title-text
+{
+  position:absolute;
+  left:45vw;
+  top:2vh;
+}
+#title-text:hover
+{
+  animation-name: title-pulse;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  cursor: default;
+}
+@keyframes title-pulse 
+{
+  25%{-webkit-transform: scale(1.05);transform: scale(1.05);}
+  75%{-webkit-transform: scale(0.95);transform: scale(0.95);}
+}
+/* Menu */
+#menu 
+{
+  position: absolute;
+  right: 3.5vw;
+  top:15vh;
+  width: 27vw;
+  height: 80%;
+  background: rgba(84, 35, 35, 0.804);
+  transition: all .5s ease;
+  color: white;
+  border-radius: 2.5vw 2.5vw 2.5vw 2.5vw;
+}
+#menu :first-child{border-radius: 2.5vw 2.5vw 0px 0px;}
+#menu header
+{
+  font-size: 3vh;
+  color: white;
+  line-height: 10vh;
+  text-align: center;
+  background: #6f2424;
+  border-bottom: 2px solid rgba(255,255,255,.1);
+}
+#menu div{margin:2vh;font-size: 2vh;}
+#symptomsContainer, #diagnosisContainer{text-align:center;overflow-y:scroll;}
+#symptomsContainer{height:40vh;}
+/* Body Map + Gender Button */
+#anatomy
+{
+  
+}
+#gender
+{
+  position: absolute;
+  left:52.5vw;
+  top:21.5vh;
+  z-index: 1;
+  cursor:pointer;
+  padding:0.8vw;
+  font-size:2.8vh;
+  background-color:rgb(48, 99, 117);
+  color:white;
+  transition: 0.4s all ease-in-out;
+  line-height: 100%;
+  border: 0.3vh solid #444;
+  border-radius: 50%;
+  outline:none;
+}
+#gender:hover{opacity: 75%;}
+/* Dropdown */
+#container
+{
+  position:absolute;
+  left:4vw;
+}
+select
+{
+  font-size:2vh;
+  background-color:#6f2424;
+  color:white;
+}
+option
+{
+  background-color:#6f2424;
+  color:white;
+}
+/* Help */
+#help, #help-drop
+{
+  color:#6f2424;
+  z-index:2;
+}
+#help
+{
+  transition:all 0.25s ease-in-out;
+  position:absolute;
+  top:80vh;
+  left:32vw;
+  border-bottom:dotted;
+  border-width: 1px;
+  font-size:4vh;
+}
+#help:hover
+{
+  opacity:0.8;
+  cursor:pointer;
+}
+#help-drop
+{
+  cursor:default;
+  transition:all 0.5s ease-in-out;
+  opacity:0;
+  position: absolute;
+  top:85vh;
+  left:15vw;
+  font-size:1.5vh;
+  width:40vw;
+}

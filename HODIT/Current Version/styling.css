@@ -1,0 +1,440 @@
+/* IMPORTANT: Styling works BEST with a Macbook or Mac Computer. Else, the font and dropdowns will be styled differently. */
+/* --------------------------------------------------------------------- Prerequisites ---------------------------------------------------------------------*/
+*:not(area){outline: none;user-select:none;}
+*{font-family:"futura";}
+html{overflow: hidden;}
+body{background-color: #f5eded;}
+/* Preloader */
+#overlay
+{
+  height:100%;
+  width:100%;
+  background:rgba(0, 0, 0, 0.85);
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:2;
+  opacity: 1;
+  transition: 1.06s all ease-in-out;
+}
+#spinner
+{
+  width: 60px;
+  height: 60px;
+  border: 5px solid #f3f3f3;
+  border-top:5px solid #e77d74;
+  border-radius: 100%;
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right: 0;
+  margin: auto;
+  animation: spin 1s infinite linear;
+}
+@keyframes spin 
+{
+  from{transform: rotate(0deg);}
+  to{transform: rotate(360deg);}
+}
+/*---------------------------------------------------------------------- HODIT Login Page ------------------------------------------------------------------*/
+#login-selected, #signup-selected{display: none;} /* Checkboxes */
+/* Dynamic Changes */
+#signup-selected:checked ~ #signup-tab{background-color:rgba(84, 35, 35, 0.804);}
+#signup-area:hover{background-color:rgba(84, 35, 35, 0.29);}
+#signup-selected:checked ~ #login-tab{background-color:rgba(84, 35, 35, 0.596);}
+#login-area:hover{background-color:rgba(84, 35, 35, 0.29);}
+#signup-selected:checked ~ #formcontainer{height: 53vh;}
+#signup-selected:checked ~ #login-button{display: none;}
+#signup-selected:checked ~ #signup-button{display: block;}
+#signup-selected:checked ~ #inputcontainer #email{display: block;}
+#signup-selected:checked ~ #inputcontainer #name{display: block;}
+#signup-selected:checked ~ #inputcontainer .hidden-text{display: block;}
+/* Login-Signup Box (Static Changes which appear onload */
+#formcontainer
+{
+  position: absolute;
+  top:25vh;
+  left:30vw;
+  background-color:#6f242486;
+  width:40vw;
+  height:38vh;
+  border-radius: 2vh;
+  transition: 0.3s all ease;
+}
+/* Signup and Login Tabs */
+#login-tab, #signup-tab, #login-area, #signup-area
+{
+  cursor:pointer;
+  position: absolute;
+  width:20vw;
+  height:10vh;
+}
+#login-tab, #signup-tab
+{
+  color:white;
+  z-index:1;
+  text-align: center;
+  font-size:3vh;
+  line-height: 9.5vh;
+}
+#login-tab, #login-area
+{
+  top:25vh;
+  left:30vw;
+  border-radius: 2vh 0 0 0;
+}
+#signup-tab, #signup-area
+{
+  top:25vh;
+  left:50vw;
+  border-radius: 0 2vh 0 0;
+}
+#login-area, #signup-area{z-index:2;transition: 0.25s ease-in-out;}
+#login-tab{background-color:rgba(84, 35, 35, 0.804)}
+#signup-tab{background-color:rgba(84, 35, 35, 0.596);}
+/* Text Boxes + Inputs */
+#inputcontainer
+{
+  color:white;
+  font-size: 2vh;
+  position: absolute;
+  left:42.5vw;
+  top:37.5vh;
+  z-index: 1;
+}
+input
+{
+  border: 1px solid gray;
+  border-radius: 1vh;
+  margin-top:0.35vh;
+  margin-bottom:1vh;
+  width:15vw;
+  height:3vh;
+  opacity: 0.5;
+  transition: 0.5s ease-in-out;
+}
+input:hover{opacity: 0.4;}
+input:focus{border-color:#6f2424;}
+#inputcontainer #email, #inputcontainer #name{display:none;}
+#inputcontainer .hidden-text{display: none;}
+/* Buttons */
+#login-button, #signup-button
+{
+  position: absolute;
+  z-index: 1;
+  color:rgba(84, 35, 35, 0.804);
+  border:solid 0.2vh;
+  border-radius: 1vh;
+  width: 5.5vw;
+  padding:0.5vh;
+  font-size: 2vh;
+}
+#login-button
+{
+  left: 47.5vw;
+  top:55vh;
+  opacity: 0.9;
+  transition: 0.25s ease-in-out;
+}
+#login-button:hover, #signup-button:hover
+{
+  cursor:pointer;
+  opacity: 0.8;
+}
+#signup-button
+{
+  width:7vw;
+  display: none;
+  left: 46.5vw;
+  top:70vh;
+  opacity: 0.9;
+  transition: 0.25s ease-in-out;
+}
+/* Alert Message */
+#alert, #closebtn{display: none;}
+#alert 
+{
+  position: absolute;
+  top:0;
+  left:0;
+  width:97.5%;
+  height:3.5vh;
+  padding: 3vh;
+  font-size:2.5vh;
+  background-color: #6c1616d3;
+  color: white;
+  animation: error 0.5s ease-in;
+}
+@keyframes error
+{
+  from{top:-10vh}
+  to{top:0vh}
+}
+#closebtn 
+{
+  margin-right: 2vw;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 3.5vh;
+  line-height: 3vh;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#closebtn:hover{opacity: 0.8;}
+/*---------------------------------------------------------------------- HODIT Main Page ------------------------------------------------------------------*/
+/* Top Navigation Bar */
+#top-bar
+{
+  position:absolute;
+  top:0;
+  left:0;
+  font-size:5vh;
+  color:#6f2424;
+  background-color:#6f242486;
+  width:100%;
+  height:10vh;
+  animation: drop 0.425s linear;
+  box-shadow: 0 2vh 3vh 0 rgba(0, 0, 0, 0.2);
+}
+@keyframes drop
+{
+  from{height: 0vh;}
+  to{height:10vh}
+}
+#account-button, #logout
+{
+  opacity: 0;
+  float:right;
+  width:8.5vw;
+  height:5vh;
+  margin-top:2.5vh;
+  margin-right:3.5vw;
+  background-color: #6f24244c;
+  border: 0.3vh solid #6f2424;
+  border-radius: 2vh;
+  font-size: 2.2vh;
+  color:#6f2424;
+  cursor:pointer;
+  transition: 0.5s ease-in-out;
+}
+#account-button:hover, #logout:hover
+{
+  border: 0.3vh solid #6f2424b7;
+  color:#6f2424b7;
+}
+#account-info
+{
+  display: none;
+  position:absolute;
+  top:25vh;
+  left:25vw;
+  background-color:#6f2424d3;
+  width:50vw;
+  height:50vh;
+  animation: show-info 0.2s linear;
+  z-index: 3;
+  border-radius: 5vh;
+  border: solid black;
+  font-size:2.5h;
+  color:white;
+  overflow-y: scroll;
+  padding-bottom: 3vh;
+}
+#account-info header
+{
+  font-size:3.25vh;
+  text-align:center;
+  margin-top: 3vh;
+}
+#account-info div
+{
+  margin-left:3vw;
+  margin-top:3vh;
+  line-height: 5vh;
+}
+@keyframes show-info
+{
+  from{height:0vh}
+  to{height:50vh;}
+}
+#website-blur
+{
+  display: none;
+  backdrop-filter: blur(5px);
+  z-index:2;
+  position: absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  animation: blur 0.4s;
+}
+@keyframes blur
+{
+  from{backdrop-filter: blur(0px);}
+  to{backdrop-filter: blur(5px);}
+}
+#logo
+{
+  position:absolute;
+  left:45vw;
+  top:1.5vh;
+  opacity: 0;
+  transition: 0.425s ease-in;
+}
+#logo:hover
+{
+  top:1.5vh;
+  animation-name: title-pulse;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  cursor: default;
+}
+@keyframes title-pulse 
+{
+  25%{-webkit-transform: scale(1.05);transform: scale(1.05);}
+  75%{-webkit-transform: scale(0.95);transform: scale(0.95);}
+}
+/* Symptoms and Diagnoses Menu */
+#menu 
+{
+  position: absolute;
+  right: 3.5vw;
+  top:15vh;
+  width: 27vw;
+  height: 80%;
+  background: rgba(84, 35, 35, 0.804);
+  transition: all .5s ease;
+  color: white;
+  border-radius: 2.5vw 2.5vw 2.5vw 2.5vw;
+  text-align:center;
+  animation: slide 0.425s linear;
+}
+@keyframes slide
+{
+  from{right:-27.5vw}
+  to{right:3.5vw}
+}
+#menu header:first-of-type{border-radius: 2.5vw 2.5vw 0 0;}
+#menu header
+{
+  font-size: 3vh;
+  color: white;
+  line-height: 10vh;
+  background: #6f2424;
+  border-bottom: 2px solid rgba(107, 40, 40, 0.1);
+}
+#menu div{margin-top:1.5vh;}
+#symptomsContainer{height:34.25vh;}
+#symptomsLayer
+{
+  height: 25vh;
+  overflow-y: scroll;
+  line-height: 5vh;
+  font-size: 2.5vh;
+}
+#diagnosisContainer
+{
+  font-size: 1.5vh;
+  overflow: scroll;
+  margin:2vw;
+}
+#finishedDiagnosis
+{
+  color:rgb(213, 190, 190);
+  margin-bottom: 0.75vh;
+}
+#reset
+{
+  display: none;
+  color:white;
+  border:solid 0.2vh;
+  background-color:#6f2424;
+  border-radius: 2.5vw;
+  font-size:2vh;
+  position:absolute;
+  bottom:36.5vh;
+  right:10.5vw;
+  text-align:center;
+  padding:1vh;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  transition: 0.35s all ease-in-out;
+}
+#reset:hover{opacity:0.8;cursor:pointer;}
+/* Body Map + Gender Button */
+#anatomyContainer
+{
+  position:absolute;
+  left:11.5vw;
+  top:20vh;
+}
+area{outline:double;} /* Doesn't do its literal purpose. It just makes black the outline color */
+#gender
+{
+  position: absolute; 
+  left:52.5vw;
+  top:21.5vh;
+  z-index: 1;
+  cursor:pointer;
+  padding:1vw;
+  font-size:3vh;
+  background-color:#226089;
+  color: rgb(231, 231, 231);
+  transition: 0.4s all ease-in-out;
+  line-height: 92.5%;
+  border: 0.3vh solid rgb(180, 180, 180);
+  border-radius: 50%;
+}
+#gender:hover{opacity: 0.8;}
+/* Dynamic Dropdowns */
+#container
+{
+  position:absolute;
+  left:4vw;
+}
+select
+{
+  font-size:1.75vh;
+  background-color:#6f2424;
+  color:white;
+  transition: all 0.5s ease-in-out;
+  outline:none;
+}
+select:hover{opacity:0.8;}
+/* Help Area */
+#help, #help-drop
+{
+  color:#6f2424;
+  z-index:1;
+}
+#help
+{
+  transition:all 0.25s ease-in-out;
+  position:absolute;
+  top:80vh;
+  left:32vw;
+  border-bottom:dotted;
+  border-width: 1px;
+  font-size:4vh;
+}
+#help:hover
+{
+  opacity:0.8;
+  cursor:pointer;
+}
+#help-drop
+{
+  text-align: center;
+  cursor:default;
+  transition:all 0.5s ease-in-out;
+  opacity:0;
+  position: absolute;
+  top:84.5vh;
+  left:15vw;
+  font-size:1.5vh;
+  width:40vw;
+}
